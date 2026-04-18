@@ -47,13 +47,57 @@
 
 <label>Attribute:</label><br>
 <select id="attribute">
-  <option value="ATTRIBUTE_VACCINE">Vaccine</option>
-  <option value="ATTRIBUTE_VIRUS">Virus</option>
-  <option value="ATTRIBUTE_DATA">Data</option>
-  <option value="ATTRIBUTE_FREE">Free</option>
-  <option value="ATTRIBUTE_NODAT">No Data</option>
-  <option value="ATTRIBUTE_UNKNOWN">Unknown</option>
-  <option value="ATTRIBUTE_VARIABLE">Variable</option>
+  <option value="TYPE_VACCINE">Vaccine</option>
+  <option value="TYPE_VIRUS">Virus</option>
+  <option value="TYPE_DATA">Data</option>
+  <option value="TYPE_FREE">Free</option>
+  <option value="TYPE_NODAT">No Data</option>
+  <option value="TYPE_UNKNOWN">Unknown</option>
+  <option value="TYPE_VARIABLE">Variable</option>
+</select>
+
+<label>Type 1:</label><br>
+<select id="type1">
+  <option value="TYPE_NEUTRAL">Neutral</option>
+  <option value="TYPE_COMBAT">Combat</option>
+  <option value="TYPE_WIND">Wind</option>
+  <option value="TYPE_FILTH">Filth</option>
+  <option value="TYPE_EARTH">Earth</option>
+  <option value="TYPE_BEAST">Beast</option>
+  <option value="TYPE_INSECT">Insect</option>
+  <option value="TYPE_UNDEAD">Undead</option>
+  <option value="TYPE_METAL">Metal</option>
+  <option value="TYPE_FIRE">Fire</option>
+  <option value="TYPE_WATER">Water</option>
+  <option value="TYPE_PLANT">Plant</option>
+  <option value="TYPE_ELECTRIC">Electric</option>
+  <option value="TYPE_LIGHT">Light</option>
+  <option value="TYPE_ICE">Ice</option>
+  <option value="TYPE_DRAGON">Dragon</option>
+  <option value="TYPE_DARK">Dark</option>
+  <option value="TYPE_PUPPET">Puppet</option>
+</select>
+
+<label>Type 2:</label><br>
+<select id="type2">
+  <option value="TYPE_NEUTRAL">Neutral</option>
+  <option value="TYPE_COMBAT">Combat</option>
+  <option value="TYPE_WIND">Wind</option>
+  <option value="TYPE_FILTH">Filth</option>
+  <option value="TYPE_EARTH">Earth</option>
+  <option value="TYPE_BEAST">Beast</option>
+  <option value="TYPE_INSECT">Insect</option>
+  <option value="TYPE_UNDEAD">Undead</option>
+  <option value="TYPE_METAL">Metal</option>
+  <option value="TYPE_FIRE">Fire</option>
+  <option value="TYPE_WATER">Water</option>
+  <option value="TYPE_PLANT">Plant</option>
+  <option value="TYPE_ELECTRIC">Electric</option>
+  <option value="TYPE_LIGHT">Light</option>
+  <option value="TYPE_ICE">Ice</option>
+  <option value="TYPE_DRAGON">Dragon</option>
+  <option value="TYPE_DARK">Dark</option>
+  <option value="TYPE_PUPPET">Puppet</option>
 </select>
 
 
@@ -70,6 +114,8 @@ function generate() {
     const spe = document.getElementById("spe").value;
     const desc = document.getElementById("desc").value;
     const attribute = document.getElementById("attribute").value;
+    const type1 = document.getElementById("type1").value;
+    const type2 = document.getElementById("type2").value;
 
     const upper = name.toUpperCase();
 
@@ -81,7 +127,7 @@ function generate() {
         .baseSpAttack  = ${spa},
         .baseSpDefense = ${spd},
         .baseSpeed     = ${spe},
-        .types = MON_TYPES(${attribute}, TYPE_NEUTRAL, TYPE_NEUTRAL),
+        .types = MON_TYPES(${attribute}, ${type1}, ${type2}),
         .catchRate = 225,
         .expYield = 100,
         .evYield_HP = 3,
