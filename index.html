@@ -47,25 +47,6 @@
 
 <br>
 
-<head>
-    <title>Types</title>
-    <style>
-        body { font-family: Arial; padding: 20px; }
-        input, textarea { margin: 5px 0; width: 300px; }
-        button { 
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
-
 <label>Attribute:</label>
 <select id="attribute">
   <option value="TYPE_VACCINE">Vaccine</option>
@@ -76,6 +57,7 @@
   <option value="TYPE_UNKNOWN">Unknown</option>
   <option value="TYPE_VARIABLE">Variable</option>
 </select>
+<br>   
 <br>
 <label>Type 1:</label>
 <select id="type1">
@@ -98,6 +80,7 @@
   <option value="TYPE_DARK">Dark</option>
   <option value="TYPE_PUPPET">Puppet</option>
 </select>
+<br>   
 <br>
 <label>Type 2:</label>
 <select id="type2">
@@ -120,6 +103,7 @@
   <option value="TYPE_DARK">Dark</option>
   <option value="TYPE_PUPPET">Puppet</option>
 </select>
+<br>   
 <br>
 
 <button onclick="generate()">Generate File</button>
