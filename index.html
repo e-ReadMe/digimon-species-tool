@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Species Generator</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input, textarea { margin: 5px 0; width: 300px; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<h2>Species Generator</h2>
+
+<label>Species Name:</label><br>
+<input id="name" placeholder="Botamon"><br>
+
+<label>Base HP:</label><br>
+<input id="hp" type="number"><br>
+
+<label>Base Attack:</label><br>
+<input id="atk" type="number"><br>
+
+<label>Base Defense:</label><br>
+<input id="def" type="number"><br>
+
+<label>Base Sp. Attack:</label><br>
+<input id="spa" type="number"><br>
+
+<label>Base Sp. Defense:</label><br>
+<input id="spd" type="number"><br>
+
+<label>Base Speed:</label><br>
+<input id="spe" type="number"><br>
+
+<label>Description:</label><br>
+<textarea id="desc"></textarea><br>
+
+<button onclick="generate()">Generate File</button>
+
+<script>
+function generate() {
+    const name = document.getElementById("name").value;
+    const hp = document.getElementById("hp").value;
+    const atk = document.getElementById("atk").value;
+    const def = document.getElementById("def").value;
+    const spa = document.getElementById("spa").value;
+    const spd = document.getElementById("spd").value;
+    const spe = document.getElementById("spe").value;
+    const desc = document.getElementById("desc").value;
+
+    const upper = name.toUpperCase();
+
+    const output = `[SPECIES_${upper}] =
+    {
+        .baseHP        = ${hp},
+        .baseAttack    = ${atk},
+        .baseDefense   = ${def},
+        .baseSpAttack  = ${spa},
+        .baseSpDefense = ${spd},
+        .baseSpeed     = ${spe},
+        .types = MON_TYPES(TYPE_NODAT, TYPE_NEUTRAL, TYPE_NEUTRAL),
+        .catchRate = 225,
+        .expYield = 100,
+        .evYield_HP = 3,
+        .evYield_Attack = 3,
+        .evYield_Defense = 3,
+        .evYield_SpAttack = 3,
+        .evYield_SpDefense = 3,
+        .evYield_Speed = 3,
+        .itemCommon = ITEM_ORAN_BERRY,
+        .itemRare = ITEM_ORAN_BERRY,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_TACTICAL_RETREAT, ABILITY_TACTICAL_RETREAT, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("${name}"),
+        .description = COMPOUND_STRING(
+            "${desc.replace(/\n/g, '\\n\"\\n\"')}"
+        ),
+        .levelUpLearnset = s${name}LevelUpLearnset,
+        .formSpeciesIdTable = s${name}FormSpeciesIdTable,
+        .digivolutions = s${name}DigivolveTable,
+        .eggId = EGG_ID_${upper},
+    },`;
+
+    downloadFile(`${name}.txt`, output);
+}
+
+function downloadFile(filename, content) {
+    const blob = new Blob([content], { type: "text/plain" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+}
+</script>
+
+</body>
+</html>
