@@ -12,7 +12,7 @@
 
 <h2>Species Generator</h2>
 
-<label>Species Name:</label><br>
+<label>Species Name (capitalization doesn't matter):</label><br>
 <input id="name" placeholder="Botamon"><br>
 
 <label>Base HP:</label><br>
@@ -35,6 +35,17 @@
 
 <label>Description:</label><br>
 <textarea id="desc"></textarea><br>
+
+<select id="Attribute">
+  <option value="ATTRIBUTE_VACCINE">Vaccine</option>
+  <option value="ATTRIBUTE_VIRUS">Virus</option>
+  <option value="ATTRIBUTE_DATA">Data</option>
+  <option value="ATTRIBUTE_FREE">Free</option>
+  <option value="ATTRIBUTE_NODAT">No Data</option>
+  <option value="ATTRIBUTE_UNKNOWN">Unknown</option>
+  <option value="ATTRIBUTE_VARIABLE">Variable</option>
+</select>
+
 
 <button onclick="generate()">Generate File</button>
 
