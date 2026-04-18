@@ -46,6 +46,7 @@
 <textarea id="desc"></textarea><br>
 
 <br>
+<!-- <p>types ----------------------------------------------------------------------------------------</p> -->
 
 <label>Attribute:</label>
 <select id="attribute">
@@ -105,7 +106,15 @@
 </select>
 <br>   
 <br>
+<!-- <p>Extra Info ----------------------------------------------------------------------------------------</p> -->
 
+<label>Catch Rate. 225 is caterpie. 45 are starters. 3 is Mewtwo. </label><br>
+<input id="catchrate" type="number" placeholder="225"><br><br>
+
+<label>Exp yield. Sunkern rewards 36, Pikachu rewards 100, Butterfree rewards 200, Dragonite rewards 300, Blissey Rewards 635 </label><br>
+<input id="expyield" type="number" placeholder="100"><br><br>
+
+    
 <button onclick="generate()">Generate File</button>
 
 <script>
@@ -121,6 +130,8 @@ function generate() {
     const attribute = document.getElementById("attribute").value;
     const type1 = document.getElementById("type1").value;
     const type2 = document.getElementById("type2").value;
+    const catchrate = document.getElementById("catchrate").value;
+    const expyield = document.getElementById("expyield").value;
 
     const upper = name.toUpperCase();
 
@@ -133,8 +144,8 @@ function generate() {
         .baseSpDefense = ${spd},
         .baseSpeed     = ${spe},
         .types = MON_TYPES(${attribute}, ${type1}, ${type2}),
-        .catchRate = 225,
-        .expYield = 100,
+        .catchRate = ${catchrate},
+        .expYield = ${expyield},
         .evYield_HP = 3,
         .evYield_Attack = 3,
         .evYield_Defense = 3,
