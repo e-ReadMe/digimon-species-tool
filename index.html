@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2>Species Generator V15</h2>
+<h2>Species Generator V16</h2>
 
 <label>Species Name (capitalization does not matter):</label><br>   
 <label>Dub Name:</label> <input id="dubname" placeholder="Gatomon"><br>
@@ -200,10 +200,10 @@
   <option value="BODY_COLOR_WHITE">White</option>
   <option value="BODY_COLOR_PINK">Pink</option>
 </select>
-
+<br><br>
 <!-- <p>pokedex box ----------------------------------------------------------------------------------------</p> -->
 <label>Pokedex Entry:</label><br>
-<label>Type your pokedex entry into the box. Once your happy, insert paragraph breaks ¶ onto the end of each line. This will tell the code to treat it as four distinct lines.:</label>
+<label>Type your pokedex entry into the box. Once your happy, insert paragraph breaks  onto the end of each line. This will tell the code to treat it as four distinct lines.:</label>
 <br>
 <br>
 <div style="position: relative; width: 840px; margin-top: 20px;">
@@ -218,7 +218,7 @@
 function generate() {
     const dubname = document.getElementById("dubname").value.toUpperCase();
     const subname = document.getElementById("subname").value.toUpperCase();
-    const catname = document.getElementById("catname").value.toSentenceCase();
+    const catname = document.getElementById("catname").value.toUpperCase();
     const hp = document.getElementById("hp").value;
     const atk = document.getElementById("atk").value;
     const def = document.getElementById("def").value;
@@ -285,7 +285,7 @@ function generate() {
     #else
         .speciesName = _("${subname}"),
     #endif
-        .cryId = CRY_NONE
+        .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_${subname},
         .categoryName = _("${catname}"),
         .height = 0,
