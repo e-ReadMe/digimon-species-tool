@@ -181,9 +181,31 @@
 <label>Ability 1: </label>
 <input id="ability1" placeholder="STURDY"><br>
 <label>Ability 2: </label>
-<input id="ability2" placeholder="BABY_PROOF"><br>
+<input id="ability2" placeholder="baby_Proof"><br>
 <label>Hidden Ability: </label>
-<input id="ability3" placeholder="ABILITY_NONE"><br>
+<input id="ability3" placeholder="none"><br>
+
+<!-- <p>Abilities ----------------------------------------------------------------------------------------</p> -->
+<label>------------------------ Abilities ------------------------</label><br>
+
+<!-- <p>pokedex stuff ----------------------------------------------------------------------------------------</p> -->
+<label>------------------------ Pokedex Stuff ------------------------</label><br>
+
+<label>Body Colour:</label>
+<select id="bodycolor">
+  <option value="BODY_COLOR_RED">Red</option>
+  <option value="BODY_COLOR_BLUE">Blue</option>
+  <option value="BODY_COLOR_YELLOW">Yellow</option>
+  <option value="BODY_COLOR_GREEN">Green</option>
+  <option value="BODY_COLOR_BLACK">Black</option>
+  <option value="BODY_COLOR_BROWN">Brown</option>
+  <option value="BODY_COLOR_PURPLE">Purple</option>
+  <option value="BODY_COLOR_GRAY">Gray</option>
+  <option value="BODY_COLOR_WHITE">White</option>
+  <option value="BODY_COLOR_PINK">Pink</option>
+</select>
+
+
 
     
 <button onclick="generate()">Generate File</button>
@@ -215,6 +237,7 @@ function generate() {
     const ability1 = document.getElementById("ability1").value.toUpperCase().replace(/ /g, "_");
     const ability2 = document.getElementById("ability2").value.toUpperCase().replace(/ /g, "_");
     const ability3 = document.getElementById("ability3").value.toUpperCase().replace(/ /g, "_");
+    const bodycolor = document.getElementById("bodycolor").value;
 
     const upper = name.toUpperCase();
 
@@ -245,7 +268,7 @@ function generate() {
         .growthRate = ${growthrate},
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_${ability1}, ABILITY_${ability2}, ABILITY_${ability3} },
-        .bodyColor = BODY_COLOR_BLACK,
+        .bodyColor = ${bodycolor},
         .speciesName = _("${name}"),
         .description = COMPOUND_STRING(
             "${desc.replace(/\n/g, '\\n\"\\n\"')}"
