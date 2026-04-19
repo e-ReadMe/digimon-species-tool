@@ -24,7 +24,7 @@
 <label>Species Name (capitalization doesn't matter):</label><br>
 <input id="name" placeholder="Botamon"><br>
 
-<label>Base Stats ------------------------</label><br>
+<label>------------------------Base Stats ------------------------</label><br>
     
 <label>Base HP:</label><br>
 <input id="hp" type="number"><br>
@@ -49,7 +49,7 @@
 
 <br>
 <!-- <p>types ----------------------------------------------------------------------------------------</p> -->
-<label>Types and Attributes ------------------------</label><br>
+<label>------------------------ Types and Attributes ------------------------</label><br>
 <label>Attribute:</label>
 <select id="attribute">
   <option value="TYPE_VACCINE">Vaccine</option>
@@ -109,7 +109,7 @@
 <br>   
 <br>
 <!-- <p>Extra Info ----------------------------------------------------------------------------------------</p> -->
-<label>Extra Info ------------------------</label><br>
+<label>------------------------ Extra Info ------------------------</label><br>
 <label>Catch Rate. 225 is caterpie. 45 are starters. 3 is Mewtwo. </label><br>
 <input id="catchrate" type="number" placeholder="225"><br><br>
 
@@ -117,7 +117,7 @@
 <input id="expyield" type="number" placeholder="100"><br><br>
 
 <!-- <p>EV Yields ----------------------------------------------------------------------------------------</p> -->
-<label>EV Yields ------------------------</label><br>
+<label>------------------------ EV Yields ------------------------</label><br>
 <label>EV Yields after Battle. Each must be either 0, 1, 2 or 3. You can have 3 for each if you want. </label><br>
     
 <label>HP EV Yield.</label><br>
@@ -139,11 +139,13 @@
 <input id="evyield_speed" type="number"><br>
 
 <!-- <p>hold items ----------------------------------------------------------------------------------------</p> -->
-
+<label>------------------------ Hold Items ------------------------</label><br>
+<label>Must be in the format of ITEM_ORAN_BERRY.</label><br>
+<label>if you make both items the same, it'll have a 100% chance of being held. </label><br>
 <label>Common Held Item. 50% chance.</label><br>
 <textarea id="item1" placeholder="ITEM_ORAN_BERRY"></textarea><br>
 
-<label>Rare Held Item. 1% chance. Make it the same as the Common Held Item and It'll have a 100% chance. </label><br>
+<label>Rare Held Item. 1% chance. </label><br>
 <textarea id="item2" placeholder="ITEM_ORAN_BERRY"></textarea><br>
     
 
