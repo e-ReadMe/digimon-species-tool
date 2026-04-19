@@ -204,9 +204,12 @@
   <option value="BODY_COLOR_PINK">Pink</option>
 </select>
 
-<html><head><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="stylesheet" type="text/css" href="style.css"><title>Pok&eacute;mon Emerald Textbox Simulator</title></head><body><textarea></textarea><div id="tips"><h1>Tips</h1><p>You don&rsquo;t need to leave space for the <img src="down_arrow.gif" alt="down arrow"> indicator.</p><p>The phrase <span class="player">{PLAYER}</span> allows enough space for the widest possible player name.</p><p>Font by <a href="https://fontstruct.com/fontstructions/show/1975556/pokemon-emerald-9" target="_blank">aztecwarrior28</a>.</div></body></html>
-
-
+<br>
+<div style="position: relative; width: 840px; margin-top: 20px;">
+    <div style="background: url('box.gif') 20px 20px no-repeat; width: 840px; height: 200px; position: relative;">
+        <textarea id="textOverlay" style="position: absolute; top: 44px; left: 92px; width: 796px; height: 144px; font-size: 46px; line-height: 54px; background: transparent; border: none; outline: none; resize: none; padding: 20px 0 0; color: #636363; overflow: hidden; font-family: Arial;"></textarea>
+    </div>
+</div>
     
 <button onclick="generate()">Generate File</button>
 
