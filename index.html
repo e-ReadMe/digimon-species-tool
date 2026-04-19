@@ -15,11 +15,12 @@
 </head>
 <body>
 
-<h2>Species Generator V13</h2>
+<h2>Species Generator V14</h2>
 
 <label>Species Name (capitalization does not matter):</label><br>   
 <label>Dub Name:</label> <input id="dubname" placeholder="Gatomon"><br>
 <label>Sub Name:</label> <input id="subname" placeholder="Tailmon"><br>
+<label>Category Name:</label> <input id="catname" placeholder="Slime"><br>
 
 <label>------------------------Base Stats ------------------------</label><br>
     
@@ -200,10 +201,11 @@
   <option value="BODY_COLOR_PINK">Pink</option>
 </select>
 <label>Body Color:</label><br>
-<input id="bodycolor"><br>
+<input id="bodycolor"><br><br>
 
 <!-- <p>pokedex box ----------------------------------------------------------------------------------------</p> -->
-
+<label>Pokedex Entry:</label>
+<label>Type your pokedex entry into the box. Once your happy, insert paragraph breaks ¶ onto the end of each line. This will tell the code to treat it as four distinct lines.:</label>
 <br>
 <br>
 <div style="position: relative; width: 840px; margin-top: 20px;">
@@ -218,6 +220,7 @@
 function generate() {
     const dubname = document.getElementById("dubname").value.toUpperCase();
     const subname = document.getElementById("subname").value.toUpperCase();
+    const catname = document.getElementById("catname").value.toSentenceCase();
     const hp = document.getElementById("hp").value;
     const atk = document.getElementById("atk").value;
     const def = document.getElementById("def").value;
@@ -279,16 +282,25 @@ function generate() {
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_${ability1}, ABILITY_${ability2}, ABILITY_${ability3} },
         .bodyColor = ${bodycolor},
-        .pokédexLine1 = "${line1}",
-        .pokédexLine2 = "${line2}",
-        .pokédexLine3 = "${line3}",
-        .pokédexLine4 = "${line4}",
-        .bodyColor = ${bodycolor},
     #if DubNames
         .speciesName = _("${dubname}"),
     #else
         .speciesName = _("${subname}"),
     #endif
+        .cryId = CRY_NONE
+        .natDexNum = NATIONAL_DEX_${subname},
+        .categoryName = _("${catname}"),
+        .height = 0,
+        .weight = 0,
+        .description = COMPOUND_STRING(
+            "${line1}\n"
+            "${line2}\n"
+            "${line3}\n"
+            "${line4}"),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
         .levelUpLearnset = s${subname}LevelUpLearnset,
         .formSpeciesIdTable = s${subname}FormSpeciesIdTable,
         .digivolutions = s${subname}DigivolveTable,
