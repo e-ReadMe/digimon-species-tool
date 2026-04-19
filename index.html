@@ -300,8 +300,10 @@ function saveTextLines() {
         .speciesName = _("${subname}"),
     #endif
         .description = COMPOUND_STRING(
-            "${desc.replace(/\n/g, '\\n\"\\n\"')}"
-        ),
+            "${line1}\n"
+            "${line2}\n"
+            "${line2}\n"
+            "${line2}"),
         .levelUpLearnset = s${subname}LevelUpLearnset,
         .formSpeciesIdTable = s${subname}FormSpeciesIdTable,
         .digivolutions = s${subname}DigivolveTable,
