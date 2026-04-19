@@ -114,6 +114,26 @@
 <label>Exp yield. Sunkern rewards 36, Pikachu rewards 100, Butterfree rewards 200, Dragonite rewards 300, Blissey Rewards 635 </label><br>
 <input id="expyield" type="number" placeholder="100"><br><br>
 
+<!-- <p>EV Yields ----------------------------------------------------------------------------------------</p> -->
+
+<label>HP EV Yield. Must be either 0, 1, 2 or 3. </label><br>
+<input id="evyield_hp" type="number"><br>
+
+<label>Attack EV Yield. Must be either 0, 1, 2 or 3. </label><br>
+<input id="evyield_attack" type="number"><br>
+
+<label>Defense EV Yield. Must be either 0, 1, 2 or 3. </label><br>
+<input id="evyield_defense" type="number"><br>
+
+<label>Sp Attack EV Yield. Must be either 0, 1, 2 or 3. </label><br>
+<input id="evyield_spattack" type="number"><br>
+
+<label>Sp Defense EV Yield. Must be either 0, 1, 2 or 3. </label><br>
+<input id="evyield_spdefense" type="number"><br>
+
+<label>Speed EV Yield. Must be either 0, 1, 2 or 3. </label><br>
+<input id="evyield_speed" type="number"><br>
+
     
 <button onclick="generate()">Generate File</button>
 
@@ -132,6 +152,12 @@ function generate() {
     const type2 = document.getElementById("type2").value;
     const catchrate = document.getElementById("catchrate").value;
     const expyield = document.getElementById("expyield").value;
+    const evyield_hp = document.getElementById("evyield_hp").value;
+    const evyield_attack = document.getElementById("evyield_attack").value;
+    const evyield_defense = document.getElementById("evyield_defense").value;
+    const evyield_spattack = document.getElementById("evyield_spattack").value;
+    const evyield_spdefense = document.getElementById("evyield_spdefense").value;
+    const evyield_speed = document.getElementById("evyield_speed").value;
 
     const upper = name.toUpperCase();
 
@@ -146,12 +172,12 @@ function generate() {
         .types = MON_TYPES(${attribute}, ${type1}, ${type2}),
         .catchRate = ${catchrate},
         .expYield = ${expyield},
-        .evYield_HP = 3,
-        .evYield_Attack = 3,
-        .evYield_Defense = 3,
-        .evYield_SpAttack = 3,
-        .evYield_SpDefense = 3,
-        .evYield_Speed = 3,
+        .evYield_HP = ${evyield_hp},
+        .evYield_Attack = ${evyield_attack},
+        .evYield_Defense = ${evyield_defense},
+        .evYield_SpAttack = ${evyield_spattack},
+        .evYield_SpDefense = ${spdefense},
+        .evYield_Speed = ${evyield_speed},
         .itemCommon = ITEM_ORAN_BERRY,
         .itemRare = ITEM_ORAN_BERRY,
         .genderRatio = MON_GENDERLESS,
