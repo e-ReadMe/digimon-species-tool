@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<h2>Species Generator V4</h2>
+<h2>Species Generator V5</h2>
 
 <label>Species Name (capitalization does not matter):</label><br>   
 <label>Dub Name:</label> <input id="dubname" placeholder="Gatomon"><br>
@@ -186,8 +186,6 @@
 <label>Hidden Ability: </label>
 <input id="ability3" placeholder="none"><br>
 
-<!-- <p>Abilities ----------------------------------------------------------------------------------------</p> -->
-<label>------------------------ Abilities ------------------------</label><br>
 
 <!-- <p>pokedex stuff ----------------------------------------------------------------------------------------</p> -->
 <label>------------------------ Pokedex Stuff ------------------------</label><br>
@@ -278,13 +276,13 @@ function generate() {
         .description = COMPOUND_STRING(
             "${desc.replace(/\n/g, '\\n\"\\n\"')}"
         ),
-        .levelUpLearnset = s${name}LevelUpLearnset,
-        .formSpeciesIdTable = s${name}FormSpeciesIdTable,
-        .digivolutions = s${name}DigivolveTable,
-        .eggId = EGG_ID_${upper},
+        .levelUpLearnset = s${subname}LevelUpLearnset,
+        .formSpeciesIdTable = s${subname}FormSpeciesIdTable,
+        .digivolutions = s${subname}DigivolveTable,
+        .eggId = EGG_ID_${subname},
     },`;
 
-    downloadFile(`${name}.txt`, output);
+    downloadFile(`${subname}.txt`, output);
 }
 
 function downloadFile(filename, content) {
