@@ -134,6 +134,15 @@
 <label>Speed EV Yield. Must be either 0, 1, 2 or 3. </label><br>
 <input id="evyield_speed" type="number"><br>
 
+<!-- <p>hold items ----------------------------------------------------------------------------------------</p> -->
+
+<label>Common Held Item. 50% chance.</label><br>
+<textarea id="item1" placeholder="ITEM_ORAN_BERRY"></textarea><br>
+
+<label>Rare Held Item. 1% chance. Make it the same as the Common Held Item and It'll have a 100% chance. </label><br>
+<textarea id="item2" placeholder="ITEM_ORAN_BERRY"></textarea><br>
+    
+
     
 <button onclick="generate()">Generate File</button>
 
@@ -158,6 +167,8 @@ function generate() {
     const evyield_spattack = document.getElementById("evyield_spattack").value;
     const evyield_spdefense = document.getElementById("evyield_spdefense").value;
     const evyield_speed = document.getElementById("evyield_speed").value;
+    const item1 = document.getElementById("item1").value;
+    const item2 = document.getElementById("item2").value;
 
     const upper = name.toUpperCase();
 
@@ -178,8 +189,8 @@ function generate() {
         .evYield_SpAttack = ${evyield_spattack},
         .evYield_SpDefense = ${spdefense},
         .evYield_Speed = ${evyield_speed},
-        .itemCommon = ITEM_ORAN_BERRY,
-        .itemRare = ITEM_ORAN_BERRY,
+        .itemCommon = ${item1},
+        .itemRare = ${item2},
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
