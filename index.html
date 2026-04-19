@@ -2,20 +2,12 @@
 <html>
 <head>
     <title>Species Generator</title>
-    <style>
-        body { font-family: Arial; padding: 20px; }
-        input, textarea { margin: 5px 0; width: 300px; }
-        button { 
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-        }
-    </style>
+<style>
+    body { font-family: Arial; padding: 20px; }
+    input, textarea { margin: 5px 0; width: 300px; }
+    button { margin-top: 10px; }
+    #textOverlay { position: absolute; background: transparent; border: none; outline: none; resize: none; padding: 20px 0 0; color: #636363; overflow: hidden; }
+</style>
 </head>
 <body>
 
@@ -203,7 +195,17 @@
   <option value="BODY_COLOR_WHITE">White</option>
   <option value="BODY_COLOR_PINK">Pink</option>
 </select>
+<label>Body Color:</label><br>
+<input id="bodycolor"><br>
 
+<br>
+
+<div style="position: relative; width: 840px; height: 200px;">
+    <div style="background: url('box.gif') 0px 0px no-repeat; width: 840px; height: 200px; position: absolute;"></div>
+    <textarea id="textOverlay" style="width: 796px; height: 144px; font-size: 46px; line-height: 54px; margin-left: 72px; margin-top: 24px;"></textarea>
+</div>
+
+<br>
 <br>
 <div style="position: relative; width: 840px; margin-top: 20px;">
     <div style="background: url('box.gif') 20px 20px no-repeat; width: 840px; height: 200px; position: relative;">
