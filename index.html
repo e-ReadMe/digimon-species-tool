@@ -144,12 +144,14 @@
 <!-- <p>hold items ----------------------------------------------------------------------------------------</p> -->
 <label>------------------------ Hold Items ------------------------</label><br>
 <label>Must be in the format of ITEM_ORAN_BERRY.</label><br>
-<label>If you make both items the same, it'll have a 100% chance of being held. </label><br><br>
+<label>If you make both items the same, it'll have a 100% chance of being held. </label><br>
+<label>Case doesn't matter. Can use spaces or underscores. </label><br>
+<a href="https://github.com/e-ReadMe/pokeemerald-expansion_Project_ReLoad/blob/master/include/constants/items.h" target="_blank">For a list to all items, including added digimon items:</a><br><br>
 <label>Common Held Item. 50% chance.</label><br>
-<textarea id="item1" placeholder="ITEM_ORAN_BERRY"></textarea><br>
+<textarea id="item1" placeholder="Razor Claw"></textarea><br>
 
 <label>Rare Held Item. 1% chance. </label><br>
-<textarea id="item2" placeholder="ITEM_ORAN_BERRY"></textarea><br>
+<textarea id="item2" placeholder="oran berry"></textarea><br>
     
 <!-- <p>growth rate ----------------------------------------------------------------------------------------</p> -->
 <label>------------------------ Growth Rate ------------------------</label><br>
@@ -207,8 +209,8 @@ function generate() {
     const evyield_spattack = document.getElementById("evyield_spattack").value;
     const evyield_spdefense = document.getElementById("evyield_spdefense").value;
     const evyield_speed = document.getElementById("evyield_speed").value;
-    const item1 = document.getElementById("item1").value;
-    const item2 = document.getElementById("item2").value;
+    const item1 = document.getElementById("item1").value.toUpperCase().replace(/ /g, "_");
+    const item2 = document.getElementById("item2").value.toUpperCase().replace(/ /g, "_");
     const growthrate = document.getElementById("growthrate").value;
     const ability1 = document.getElementById("ability1").value.toUpperCase().replace(/ /g, "_");
     const ability2 = document.getElementById("ability2").value.toUpperCase().replace(/ /g, "_");
@@ -235,8 +237,8 @@ function generate() {
         .evYield_SpAttack = ${evyield_spattack},
         .evYield_SpDefense = ${evyield_spdefense},
         .evYield_Speed = ${evyield_speed},
-        .itemCommon = ${item1},
-        .itemRare = ${item2},
+        .itemCommon = ITEM_${item1},
+        .itemRare = ITEM_${item2},
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
