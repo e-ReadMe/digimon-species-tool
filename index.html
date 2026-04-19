@@ -210,17 +210,12 @@ function generate() {
     const item1 = document.getElementById("item1").value;
     const item2 = document.getElementById("item2").value;
     const growthrate = document.getElementById("growthrate").value;
-    const ability1 = document.getElementById("ability1").value;
-    const ability2 = document.getElementById("ability2").value;
-    const ability3 = document.getElementById("ability3").value;
+    const ability1 = document.getElementById("ability1").value.toUpperCase().replace(/ /g, "_");
+    const ability2 = document.getElementById("ability2").value.toUpperCase().replace(/ /g, "_");
+    const ability3 = document.getElementById("ability3").value.toUpperCase().replace(/ /g, "_");
 
     const upper = name.toUpperCase();
-    const upper = ability1.toUpperCase();
-    const upper = ability2.toUpperCase();
-    const upper = ability3.toUpperCase();
-    const withUnderscores = ability1.replace(/ /g, "_");
-    const withUnderscores = ability2.replace(/ /g, "_");
-    const withUnderscores = ability3.replace(/ /g, "_");
+
     
 
     const output = `[SPECIES_${upper}] =
