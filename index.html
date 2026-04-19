@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2>Species Generator V16</h2>
+<h2>Species Generator V17</h2>
 
 <label>Species Name (capitalization does not matter):</label><br>   
 <label>Dub Name:</label> <input id="dubname" placeholder="Gatomon"><br>
@@ -218,7 +218,7 @@
 function generate() {
     const dubname = document.getElementById("dubname").value.toUpperCase();
     const subname = document.getElementById("subname").value.toUpperCase();
-    const catname = document.getElementById("catname").value.toUpperCase();
+    const catname = document.getElementById("catname").value.charAt(0).toUpperCase() + document.getElementById("catname").value.slice(1).toLowerCase();
     const hp = document.getElementById("hp").value;
     const atk = document.getElementById("atk").value;
     const def = document.getElementById("def").value;
@@ -291,14 +291,42 @@ function generate() {
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
-            "${line1}\n"
-            "${line2}\n"
-            "${line3}\n"
+            "${line1}\\n"
+            "${line2}\\n"
+            "${line3}\\n"
             "${line4}"),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
         .trainerOffset = 0,
+        .frontPic = gMonFrontPic_${subname},
+        .frontPicSize = MON_COORDS_SIZE(56, 56),
+        .frontPicYOffset = 7,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+            ANIMCMD_FRAME(1, 36),
+            ANIMCMD_FRAME(0, 10),
+        ),
+        .frontAnimId = ANIM_V_STRETCH,
+        .backPic = gMonBackPic_${subname},
+        .backPicSize = MON_COORDS_SIZE(64, 48),
+        .backPicYOffset = 10,
+        .backAnimId = BACK_ANIM_H_SLIDE,
+        .palette = gMonPalette_${subname},
+        .shinyPalette = gMonShinyPalette_${subname},
+        .iconSprite = gMonIcon_${subname},
+        .iconPalIndex = 0,
+        SHADOW(1, 4, SHADOW_SIZE_S)
+        FOOTPRINT(${subname})
+        OVERWORLD(
+            sPicTable_${subname},
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_${subname},
+            gShinyOverworldPalette_${subname}
+        ) 
         .levelUpLearnset = s${subname}LevelUpLearnset,
         .formSpeciesIdTable = s${subname}FormSpeciesIdTable,
         .digivolutions = s${subname}DigivolveTable,
