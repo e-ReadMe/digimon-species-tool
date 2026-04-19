@@ -110,7 +110,10 @@
 <br>
 <!-- <p>Extra Info ----------------------------------------------------------------------------------------</p> -->
 <label>------------------------ Extra Info ------------------------</label><br>
-<label>Catch Rate. 225 is caterpie. 45 are starters. 3 is Mewtwo. </label><br>
+<label>Catch Rate.</label><br>
+<label>225 is caterpie.</label><br>
+<label>45 are starters.</label><br>
+<label>3 is Mewtwo. </label><br><br>
 <input id="catchrate" type="number" placeholder="225"><br><br>
 
 <label>Exp yield. Sunkern rewards 36, Pikachu rewards 100, Butterfree rewards 200, Dragonite rewards 300, Blissey Rewards 635 </label><br>
@@ -141,14 +144,32 @@
 <!-- <p>hold items ----------------------------------------------------------------------------------------</p> -->
 <label>------------------------ Hold Items ------------------------</label><br>
 <label>Must be in the format of ITEM_ORAN_BERRY.</label><br>
-<label>if you make both items the same, it'll have a 100% chance of being held. </label><br>
+<label>If you make both items the same, it'll have a 100% chance of being held. </label><br><br>
 <label>Common Held Item. 50% chance.</label><br>
 <textarea id="item1" placeholder="ITEM_ORAN_BERRY"></textarea><br>
 
 <label>Rare Held Item. 1% chance. </label><br>
 <textarea id="item2" placeholder="ITEM_ORAN_BERRY"></textarea><br>
     
-
+<!-- <p>growth rate ----------------------------------------------------------------------------------------</p> -->
+<label>------------------------ Growth Rate ------------------------</label><br>
+<label>Growth Rate.</label><br>
+<label>Difference is very minor until level ~40. In general, from most experience to least experience required to reach level 100, is as follows:</label><br>
+<label>Fluctuating (slowest. e.g. Wailord)</label><br>
+<label>Slow (e.g. Lapras)</label><br>
+<label>Medium Slow (e.g. Starters) </label><br>
+<label>Medium Fast (e.g. Pikachu, and most pokemon) </label><br>
+<label>Fast (e.g. Marill) </label><br>
+<label>Erratic (e.g. fossils) </label><br><br>
+<label>growthrate</label>
+<select id="growthrate">
+  <option value="GROWTH_FLUCTUATING">Fluctuating</option>
+  <option value="GROWTH_SLOW">Slow</option>
+  <option value="GROWTH_MEDIUM_SLOW">Medium Slow</option>
+  <option value="GROWTH_MEDIUM_FAST">Medium Fast</option>
+  <option value="GROWTH_FAST">Fast</option>
+  <option value="GROWTH_ERRATIC">Erratic</option>
+</select>
     
 <button onclick="generate()">Generate File</button>
 
@@ -175,6 +196,7 @@ function generate() {
     const evyield_speed = document.getElementById("evyield_speed").value;
     const item1 = document.getElementById("item1").value;
     const item2 = document.getElementById("item2").value;
+    const type1 = document.getElementById("growthrate").value;
 
     const upper = name.toUpperCase();
 
@@ -200,7 +222,7 @@ function generate() {
         .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
+        .growthRate = ${growthrate},
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_TACTICAL_RETREAT, ABILITY_TACTICAL_RETREAT, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BLACK,
