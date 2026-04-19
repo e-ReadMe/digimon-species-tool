@@ -153,7 +153,6 @@
     
 <!-- <p>growth rate ----------------------------------------------------------------------------------------</p> -->
 <label>------------------------ Growth Rate ------------------------</label><br>
-<label>Growth Rate.</label><br>
 <label>Difference is very minor until level ~40. In general, from most experience to least experience required to reach level 100, is as follows:</label><br>
 <label>Fluctuating (slowest. e.g. Wailord)</label><br>
 <label>Slow (e.g. Lapras)</label><br>
@@ -171,10 +170,15 @@
   <option value="GROWTH_ERRATIC">Erratic</option>
 </select><br><br>
 
-
-
-    <a href="https://github.com/e-ReadMe/pokeemerald-expansion_Project_ReLoad/blob/master/src/data/abilities.h" target="_blank">For a link to all abilities, including added digimon abilities:</a>
-
+<!-- <p>Abilities ----------------------------------------------------------------------------------------</p> -->
+<label>------------------------ Abilities ------------------------</label><br>
+<label>Two Main abilities, plus a hidden ability.</label><br>
+<label>Write just the ability. Or put 'none' if you want to be blank.</label><br>
+<label>Capitalization doesn't matter. You can use spaces or underscores. Either is fine.</label><br>
+<a href="https://github.com/e-ReadMe/pokeemerald-expansion_Project_ReLoad/blob/master/src/data/abilities.h" target="_blank">For a link to all abilities, including added digimon abilities:</a>
+<input id="ability1" placeholder="STURDY"><br>
+<input id="ability2" placeholder="BABY_PROOF"><br>
+<input id="ability3" placeholder="ABILITY_NONE"><br>
 
     
 <button onclick="generate()">Generate File</button>
@@ -203,8 +207,18 @@ function generate() {
     const item1 = document.getElementById("item1").value;
     const item2 = document.getElementById("item2").value;
     const growthrate = document.getElementById("growthrate").value;
+    const ability1 = document.getElementById("ability1").value;
+    const ability2 = document.getElementById("ability2").value;
+    const ability3 = document.getElementById("ability3").value;
 
     const upper = name.toUpperCase();
+    const upper = ability1.toUpperCase();
+    const upper = ability2.toUpperCase();
+    const upper = ability3.toUpperCase();
+    const withUnderscores = ability1.replace(/ /g, "_");
+    const withUnderscores = ability2.replace(/ /g, "_");
+    const withUnderscores = ability3.replace(/ /g, "_");
+    
 
     const output = `[SPECIES_${upper}] =
     {
@@ -230,7 +244,7 @@ function generate() {
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = ${growthrate},
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_TACTICAL_RETREAT, ABILITY_TACTICAL_RETREAT, ABILITY_NONE },
+        .abilities = { ABILITY_${ability1}, ABILITY_${ability2}, ABILITY_${ability2} },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("${name}"),
         .description = COMPOUND_STRING(
