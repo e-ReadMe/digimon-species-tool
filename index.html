@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2>Species Generator V20 - currently it should all be working, other than capitalization of sub and dub names in the resulting code. it currently all is convereted to upper case, whereas some should be in sentence case. i'm not sure if this actually matters but it probably does. </h2>
+<h2>Species Generator V21 - currently it should all be working, other than capitalization of sub and dub names in the resulting code. it currently all is convereted to upper case, whereas some should be in sentence case. i'm not sure if this actually matters but it probably does. </h2>
 <br> 
     
     
@@ -246,10 +246,10 @@ function generate() {
     // Split textOverlay into individual lines
     const textOverlayContent = document.getElementById("textOverlay").value;
     const lines = textOverlayContent.split('\n');
-    const line1 = (lines[0] || '').replace(/"/g, '\\"');
-    const line2 = (lines[1] || '').replace(/"/g, '\\"');
-    const line3 = (lines[2] || '').replace(/"/g, '\\"');
-    const line4 = (lines[3] || '').replace(/"/g, '\\"');
+    const line1 = (lines[0] || '').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    const line2 = (lines[1] || '').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    const line3 = (lines[2] || '').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    const line4 = (lines[3] || '').replace(/"/g, '\\"').replace(/\n/g, '\\n');
     
 
     const output = `[SPECIES_${subname}] =
