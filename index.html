@@ -21,8 +21,9 @@
 
 <h2>Species Generator V4</h2>
 
-<label>Species Name (capitalization doesn't matter):</label><br>
-<input id="name" placeholder="Botamon"><br>
+<label>Species Name (capitalization does not matter):</label><br>   
+<label>Dub Name:</label> <input id="dubname" placeholder="Gatomon"><br>
+<label>Sub Name:</label> <input id="subname" placeholder="Tailmon"><br>
 
 <label>------------------------Base Stats ------------------------</label><br>
     
@@ -212,7 +213,8 @@
 
 <script>
 function generate() {
-    const name = document.getElementById("name").value;
+    const dubname = document.getElementById("dubname").value.toUpperCase();
+    const subname = document.getElementById("subname").value.toUpperCase();
     const hp = document.getElementById("hp").value;
     const atk = document.getElementById("atk").value;
     const def = document.getElementById("def").value;
@@ -239,11 +241,10 @@ function generate() {
     const ability3 = document.getElementById("ability3").value.toUpperCase().replace(/ /g, "_");
     const bodycolor = document.getElementById("bodycolor").value;
 
-    const upper = name.toUpperCase();
 
     
 
-    const output = `[SPECIES_${upper}] =
+    const output = `[SPECIES_${subname}] =
     {
         .baseHP        = ${hp},
         .baseAttack    = ${atk},
@@ -269,7 +270,11 @@ function generate() {
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_${ability1}, ABILITY_${ability2}, ABILITY_${ability3} },
         .bodyColor = ${bodycolor},
-        .speciesName = _("${name}"),
+    #if DubNames
+        .speciesName = _("${dubname}"),
+    #else
+        .speciesName = _("${subname}"),
+    #endif
         .description = COMPOUND_STRING(
             "${desc.replace(/\n/g, '\\n\"\\n\"')}"
         ),
