@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2>Species Generator V26</h2>
+<h2>Species Generator V27</h2>
 <br> 
 
 <label>To check the species list, and see what needs doing, </label>
@@ -219,8 +219,8 @@
 function generate() {
     const dubnamecaps = document.getElementById("dubname").value.toUpperCase();
     const subnamecaps = document.getElementById("subname").value.toUpperCase();
-    const dubname = document.getElementById("dubname").valuecharAt(0).toUpperCase() + document.getElementById("dubname").value.slice(1).toLowerCase();
-    const subname = document.getElementById("subname").valuecharAt(0).toUpperCase() + document.getElementById("subname").value.slice(1).toLowerCase();
+    const dubname = document.getElementById("dubname").value.charAt(0).toUpperCase() + document.getElementById("dubname").value.slice(1).toLowerCase();
+    const subname = document.getElementById("subname").value.charAt(0).toUpperCase() + document.getElementById("subname").value.slice(1).toLowerCase();
     const catname = document.getElementById("catname").value.charAt(0).toUpperCase() + document.getElementById("catname").value.slice(1).toLowerCase();
     const hp = document.getElementById("hp").value;
     const atk = document.getElementById("atk").value;
